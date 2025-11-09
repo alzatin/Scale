@@ -28,7 +28,7 @@
       "atomType": "Input",
       "name": "Geometry",
       "x": 0.0264,
-      "y": 0.2795031055900621,
+      "y": 0.16,
       "uniqueID": "bf85ec50-fb24-406d-b346-2b39fba733e6",
       "ioValues": [],
       "type": "geometry"
@@ -37,7 +37,7 @@
       "atomType": "Input",
       "name": "Scale Factor",
       "x": 0.0264,
-      "y": 0.41304347826086957,
+      "y": 0.24,
       "uniqueID": "21b5241c-d832-4c7c-ba22-c4e006c8977a",
       "ioValues": [],
       "type": "number"
@@ -77,8 +77,8 @@
     {
       "atomType": "Extrude",
       "name": "Extrude",
-      "x": 0.4301856335754641,
-      "y": 0.3012422360248447,
+      "x": 0.4154362416107382,
+      "y": 0.2546583850931677,
       "uniqueID": "id-15",
       "ioValues": [
         {
@@ -90,14 +90,13 @@
     {
       "atomType": "Code",
       "name": "Code",
-      "x": 0.5351089588377724,
-      "y": 0.41304347826086957,
+      "x": 0.5080536912751678,
+      "y": 0.4440993788819876,
       "uniqueID": "id-19",
       "ioValues": [
         {
           "name": "scaleFactor",
-          "ioValue": 3,
-          "currentEquation": "3"
+          "ioValue": 3
         }
       ],
       "codeVersion": 1,
@@ -115,7 +114,7 @@
           "ioValue": {
             "geometry": [
               {
-                "geometry": "f56d8848-{\"geometry\":\"extrude-circle-5-{\\\"origin\\\":[0,0,0],\\\"xDir\\\":[1,0,0],\\\"normal\\\":[0,0,1]}-10\",\"dimension\":\"3D\",\"tags\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"color\":\"#aad7f2\",\"bom\":[]}-3-1",
+                "geometry": "f56d8848-3-{\"geometry\":\"extrude-circle-5-{\\\"origin\\\":[0,0,0],\\\"xDir\\\":[1,0,0],\\\"normal\\\":[0,0,1]}-10\",\"dimension\":\"3D\",\"tags\":[],\"plane\":{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]},\"color\":\"#aad7f2\",\"bom\":[]}-1",
                 "dimension": "3D",
                 "tags": [],
                 "plane": {
@@ -204,8 +203,7 @@
         },
         {
           "name": "yDist",
-          "ioValue": 30,
-          "currentEquation": "30"
+          "ioValue": 30
         },
         {
           "name": "zDist",
