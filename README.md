@@ -6,11 +6,5 @@
 
 
 
- Scales an input shape 
-
-![readme](/readmeid-33.svg)
-
-
-
-
+ 
 
