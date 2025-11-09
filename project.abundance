@@ -1,102 +1,89 @@
 {
-    "atomType": "Molecule",
-    "name": "Scale",
-    "x": 0,
-    "y": 0,
-    "uniqueID": "4b6bc40a-44a9-438a-9ed9-ba4910815d8d",
-    "ioValues": [
+  "atomType": "Molecule",
+  "name": "Scale",
+  "x": 0,
+  "y": 0,
+  "uniqueID": "4b6bc40a-44a9-438a-9ed9-ba4910815d8d",
+  "ioValues": [
+    {
+      "name": "Geometry",
+      "ioValue": 10
+    },
+    {
+      "name": "Scale Factor",
+      "ioValue": 10
+    }
+  ],
+  "topLevel": true,
+  "allAtoms": [
+    {
+      "atomType": "Output",
+      "name": "Output",
+      "x": 0.98,
+      "y": 0.5,
+      "uniqueID": "562dcf42-9381-414e-bac6-1f8d947b6b2e",
+      "ioValues": []
+    },
+    {
+      "atomType": "Input",
+      "name": "Geometry",
+      "x": 0.0264,
+      "y": 0.2639751552795031,
+      "uniqueID": "bf85ec50-fb24-406d-b346-2b39fba733e6",
+      "ioValues": [],
+      "type": "geometry"
+    },
+    {
+      "atomType": "Input",
+      "name": "Scale Factor",
+      "x": 0.0264,
+      "y": 0.43788819875776397,
+      "uniqueID": "21b5241c-d832-4c7c-ba22-c4e006c8977a",
+      "ioValues": [],
+      "type": "number"
+    },
+    {
+      "atomType": "Code",
+      "name": "Code",
+      "x": 0.4226190476190476,
+      "y": 0.25139664804469275,
+      "uniqueID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558",
+      "ioValues": [
         {
-            "name": "Geometry",
-            "ioValue": 10
+          "name": "inputShape",
+          "ioValue": 10
         },
         {
-            "name": "Scale Factor",
-            "ioValue": 10
+          "name": "scaleFactor",
+          "ioValue": 10
         }
-    ],
-    "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
-    "topLevel": true,
-    "allAtoms": [
-        {
-            "atomType": "Output",
-            "name": "Output",
-            "x": 0.98,
-            "y": 0.5,
-            "uniqueID": "562dcf42-9381-414e-bac6-1f8d947b6b2e",
-            "ioValues": [
-                {
-                    "name": "number or geometry",
-                    "ioValue": "ba41af26-28ce-4d64-a41f-52eb9b1cc558"
-                }
-            ],
-            "description": "Connect geometry here to make it available in the next level up. "
-        },
-        {
-            "atomType": "Input",
-            "name": "Geometry",
-            "x": 0.024749999999999998,
-            "y": 0.4692737430167598,
-            "uniqueID": "bf85ec50-fb24-406d-b346-2b39fba733e6",
-            "ioValues": [],
-            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
-            "type": "number"
-        },
-        {
-            "atomType": "Input",
-            "name": "Scale Factor",
-            "x": 0.024749999999999998,
-            "y": 0.6508379888268156,
-            "uniqueID": "21b5241c-d832-4c7c-ba22-c4e006c8977a",
-            "ioValues": [],
-            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
-            "type": "number"
-        },
-        {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.4226190476190476,
-            "y": 0.25139664804469275,
-            "uniqueID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558",
-            "ioValues": [
-                {
-                    "name": "inputShape",
-                    "ioValue": 10
-                },
-                {
-                    "name": "scaleFactor",
-                    "ioValue": 10
-                }
-            ],
-            "description": "Defines a Replicad code block.",
-            "codeVersion": 1,
-            "code": " \n      //Inputs:[inputShape, scaleFactor]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n      let importedShape = library[inputShape]\n\n      let scaledShape = await Scale(inputShape, scaleFactor);\n      \n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [scaledShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      return shape1\n      \n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
-        }
-    ],
-    "allConnectors": [
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "inputShape",
-            "ap2Primary": false,
-            "ap1ID": "bf85ec50-fb24-406d-b346-2b39fba733e6",
-            "ap2ID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558"
-        },
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "scaleFactor",
-            "ap2Primary": false,
-            "ap1ID": "21b5241c-d832-4c7c-ba22-c4e006c8977a",
-            "ap2ID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558"
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "number or geometry",
-            "ap2Primary": false,
-            "ap1ID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558",
-            "ap2ID": "562dcf42-9381-414e-bac6-1f8d947b6b2e"
-        }
-    ],
-    "unitsKey": "Unitless",
-    "fileTypeVersion": 1,
-    "compiledBom": {},
-    "filetypeVersion": 1
+      ],
+      "codeVersion": 1,
+      "code": " \n      //Inputs:[inputShape, scaleFactor]\n      //This defines the molecules inputs and creates variables with the same names which can be referenced in the code\n      \n      //Takes the address and gets the shape from the library\n      let importedShape = library[inputShape]\n\n      let scaledShape = await Scale(inputShape, scaleFactor);\n      \n      \n      //Shapes stored in the library have tags, a color, a plane, and a bill of materials like this. We don't modify them here\n      let shape1 = {\n        geometry: [scaledShape],\n        tags: importedShape.tags,\n        color: importedShape.color,\n        plane: importedShape.plane,\n        bom: importedShape.bom\n      }\n      \n      return shape1\n      \n      \n      \n          /**\n          To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n          If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n          Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n          https://replicad.xyz/docs/introapp/UserGuide.html \n          Return a replicad object that includes geometry, color, tags and plane. \n      \n      \n          Example Code Atom:\n      \n            Inputs:[shape, x];\n      \n            let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n      \n            return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n      \n            - See more examples at _______ \n      \n      \n          */\n      "
+    }
+  ],
+  "allConnectors": [
+    {
+      "ap1Name": "number or geometry",
+      "ap2Name": "inputShape",
+      "ap1ID": "bf85ec50-fb24-406d-b346-2b39fba733e6",
+      "ap2ID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558"
+    },
+    {
+      "ap1Name": "number or geometry",
+      "ap2Name": "scaleFactor",
+      "ap1ID": "21b5241c-d832-4c7c-ba22-c4e006c8977a",
+      "ap2ID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558"
+    },
+    {
+      "ap1Name": "output",
+      "ap2Name": "number or geometry",
+      "ap1ID": "ba41af26-28ce-4d64-a41f-52eb9b1cc558",
+      "ap2ID": "562dcf42-9381-414e-bac6-1f8d947b6b2e"
+    }
+  ],
+  "unitsKey": "Unitless",
+  "fileTypeVersion": 1,
+  "compiledBom": {},
+  "filetypeVersion": 1
 }
